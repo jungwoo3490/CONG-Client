@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import styled from 'styled-components';
 import Header from '../components/CreateMessage/Header';
 import SelectNote from '../components/CreateMessage/SelectNote';
 import WriteMessage from '../components/CreateMessage/WriteMessage';
+import styled from 'styled-components';
+import { useState } from 'react';
 
-export const CreateMessage = () => {
+const CreateMessage = () => {
   const [noteType, setNoteType] = useState(1);
   const [nickname, setNickname] = useState('');
   const [message, setMessage] = useState('');
@@ -55,3 +55,5 @@ const CompleteButton = styled.button`
   margin-bottom: 3.4rem;
   border-radius: 1.2rem;
 `;
+
+export default CreateMessage;
