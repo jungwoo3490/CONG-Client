@@ -1,9 +1,7 @@
-import React from 'react';
 import { BigLogo } from '../assets/icons/icon';
-import styled from 'styled-components';
-import style from 'style-component';
-
+import React from 'react';
 import kakaoLoginButtonImage from '../assets/images/kakaoLoginButton.png';
+import styled from 'styled-components';
 
 const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI;
