@@ -21,7 +21,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/create-event" element={<CreateEvent></CreateEvent>}></Route>
-        <Route path="/event:eventId" element={<EventDetail />} />
+        <Route path="/event/:eventId" element={<EventDetail />} />
         <Route path="/create-message" element={<CreateMessage />} />
       </Routes>
     </BrowserRouter>

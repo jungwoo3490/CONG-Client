@@ -1,7 +1,6 @@
 import React from 'react';
 import { BigLogo } from '../assets/icons/icon';
 import styled from 'styled-components';
-import style from 'style-component';
 
 import kakaoLoginButtonImage from '../assets/images/kakaoLoginButton.png';
 

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BackgroundImage } from '../../assets';
 import { PersonCircle } from '../../assets';
+import { theme } from '../../styles/theme';
 
 const Header = () => {
   return (
@@ -43,6 +44,9 @@ const Date = styled.div`
   border: 1px solid purple;
 
   align-items: center;
+  color: ${theme.colors.mediumGrey};
+
+  ${theme.fonts.caption}
 `;
 
 const Title = styled.div`
@@ -51,6 +55,10 @@ const Title = styled.div`
   height: 3.4rem;
   margin-bottom: 0.6rem;
   border: 1px solid purple;
+
+  color: #fff;
+
+  ${theme.fonts.head1}
 
   align-items: center;
 `;
@@ -61,6 +69,9 @@ const Detail = styled.div`
   height: 1.7rem;
   margin-bottom: 1.5rem;
   border: 1px solid purple;
+
+  color: #e7e7e7;
+  ${theme.fonts.body1}
 `;
 
 const Info = styled.div`
@@ -68,7 +79,7 @@ const Info = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  width: 100%;
+  width: 85%;
   margin: 0 1.7rem;
   border: 1px solid yellow;
 `;

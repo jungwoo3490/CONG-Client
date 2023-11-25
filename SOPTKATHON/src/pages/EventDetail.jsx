@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/EventDetail/Header';
 import Main from '../components/EventDetail/Main';
+import MainNone from '../components/EventDetail/MainNone';
 
 export const EventDetail = () => {
   return (
@@ -10,6 +11,7 @@ export const EventDetail = () => {
     main(안에 받았어요(messageHeader) 그 다음에 포스팃 나열 Flex) */}
       <Header />
       <Main />
+      {/* <MainNone /> */}
     </div>
   );
 };
