@@ -1,7 +1,6 @@
 import { PlusBtn, SmallLogo } from '../assets/icons/icon';
 import React, { useEffect, useState } from 'react';
 
-import { EVENTLIST } from '../contents/EVENTLIST';
 import EventItem from '../components/createEvent/EventItem';
 import { client } from '../apis/client';
 import styled from 'styled-components';
@@ -9,7 +8,6 @@ import styled from 'styled-components';
 const EventList = () => {
   const [data, setData] = useState();
   const userId = 1; //session
-
   console.log(import.meta.env.VITE_BASE_URL);
   const getData = async () => {
     try {
