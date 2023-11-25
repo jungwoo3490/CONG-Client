@@ -147,4 +147,5 @@ const CreateEventButton = styled.button`
   color: ${theme.colors.black};
   background-color: ${theme.colors.green};
 `;
+
 export default CreateEvent;
