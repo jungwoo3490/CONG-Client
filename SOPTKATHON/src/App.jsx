@@ -1,3 +1,4 @@
+import Router from './Router';
 import styled from 'styled-components';
 import { useEffect } from 'react';
 function App() {
@@ -20,7 +21,9 @@ function App() {
   }, []);
   return (
     <>
-      <MobileWrapper>TEST</MobileWrapper>
+      <MobileWrapper>
+        <Router></Router>
+      </MobileWrapper>
     </>
   );
 }

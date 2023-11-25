@@ -1,23 +1,34 @@
 const colors = {
-  mainGreen: '#9FC743',
-  mainLightGrey: '#F8FAED',
+  black: '#151516',
+  blackGrey: '#2B2B2B',
+  darkGrey: '#4B4B50',
+  mediumGrey: '#7e7e85',
+  lightGrey: '#e7e7e7',
+  white: '#FFFFFF',
   mainBlack: '#121212',
-  mainWhite: '#FFFFFF',
-  mainGrey: '#E9E9E9',
-  fontGreen: '#9FC743',
-  fontGrey: '#878787',
-  errorRed: '#FF0000',
-  backgroundGrey: '#f2f2f2',
+  green: '#def487',
+  blue: '#687cff',
+  pink: '#ff93c7',
 };
 
-const fontSize = {
-  md: '1rem', // 16
-  lg: '1.5rem',
-  xl: '1.75rem',
-  xxl: '4rem',
+const FONT = ({ weight, size }) => {
+  return `
+    font-weight : ${weight};
+    font-size : ${size}rem;
+    `;
+};
+
+const fonts = {
+  head1: FONT({ weight: 700, size: 2.4 }),
+  head2: FONT({ weight: 700, size: 2 }),
+  title1: FONT({ weight: 700, size: 1.6 }),
+  body1: FONT({ weight: 500, size: 1.6 }),
+  body2: FONT({ weight: 500, size: 1.4 }),
+
+  caption: FONT({ weight: 500, size: 1.2 }),
 };
 
 export const theme = {
   colors,
-  fontSize,
+  fonts,
 };
