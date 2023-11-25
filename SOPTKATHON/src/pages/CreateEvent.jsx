@@ -84,8 +84,6 @@ const CreateEvent = () => {
   );
 };
 
-export default CreateEvent;
-
 const CreateEventWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -149,3 +147,4 @@ const CreateEventButton = styled.button`
   color: ${theme.colors.black};
   background-color: ${theme.colors.green};
 `;
+export default CreateEvent;
