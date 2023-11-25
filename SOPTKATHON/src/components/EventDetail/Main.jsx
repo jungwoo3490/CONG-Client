@@ -6,6 +6,7 @@ import { WriteButton } from '../../assets';
 
 const Main = () => {
   return (
+    //testgit
     <Container>
       <AlertText>
         <img src={LightIcon} alt="라이트아이콘" />
