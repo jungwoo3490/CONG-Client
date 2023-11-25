@@ -1,5 +1,5 @@
-import React from 'react';
-
-export const CreateMessage = () => {
+const CreateMessage = () => {
   return <div>CreateMessage</div>;
 };
+
+export default CreateMessage;
