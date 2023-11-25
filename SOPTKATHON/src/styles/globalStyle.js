@@ -7,13 +7,15 @@ const GlobalStyle = createGlobalStyle`
 * {
   box-sizing: border-box;
   font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-letter-spacing: -2%;
-line-height: 140%;
+
 
 }
 
 
   html, body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+letter-spacing: -2%;
+line-height: 140%;
 
   margin: 0 auto;
    background-color: ${({ theme }) => theme.colors.mainBlack};

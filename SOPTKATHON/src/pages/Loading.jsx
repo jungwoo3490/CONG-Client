@@ -12,12 +12,12 @@ export const Loading = () => {
     method: 'get',
     url: `${import.meta.env.VITE_BASE_URL}/login`,
     headers: {
-      Authorization: `Bearer ${access_token}`,
+      Authorization: access_token,
     },
   })
     .then((response) => {
-      if (response.code === 200) {
-        sessionStorage.setItem(userId, response.data.user_id);
+      if (response.data.code === 200) {
+        sessionStorage.setItem('userId', response.data.data.user_id);
         navigate('/event-list');
       }
     })

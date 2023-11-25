@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { theme } from '../styles/theme';
 import styled from 'styled-components';
 import axios from 'axios';
-//Todo: 날짜 렌더링
+
 const CreateEvent = () => {
   const [date, setDate] = useState('');
   const [eventName, setEventName] = useState('');

@@ -13,8 +13,8 @@ const colors = {
 
 const FONT = ({ weight, size }) => {
   return `
-
-  line-height: 140%;
+    font-family: "Pretendard Variable";
+    line-height: 140%;
     font-weight : ${weight};
     font-size : ${size}rem;
     `;
