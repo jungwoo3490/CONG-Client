@@ -4,16 +4,22 @@ import WriteMessage from '../components/CreateMessage/WriteMessage';
 import styled from 'styled-components';
 import { useState } from 'react';
 
+import { useParams } from 'react-router-dom';
+
+
 const CreateMessage = () => {
   const [noteType, setNoteType] = useState(1);
   const [nickname, setNickname] = useState('');
   const [message, setMessage] = useState('');
+
+  const { uuId } = useParams();
 
   const handleClickCompleteButton = () => {
     axios({
       method: 'post',
       url: `${import.meta.env.VITE_BASE_URL}/celebs`,
       data: {
+        room_uuid: uuId,
         nickname: nickname,
         celeb_text: message,
         post_it: noteType,
@@ -36,7 +42,7 @@ const CreateMessage = () => {
       <Header />
       <SelectNote noteType={noteType} setNoteType={setNoteType} />
       <WriteMessage noteType={noteType} setNickname={setNickname} setMessage={setMessage} />
-      <CompleteButton>작성 완료</CompleteButton>
+      <CompleteButton onClick={handleClickCompleteButton}>작성 완료</CompleteButton>
     </CreateMessageWrapper>
   );
 };
