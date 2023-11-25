@@ -1,6 +1,7 @@
 import Router from './Router';
 import styled from 'styled-components';
 import { useEffect } from 'react';
+import { EventDetail } from './pages/EventDetail';
 function App() {
   const setScreenSize = () => {
     const vh = window.innerHeight * 0.01;
