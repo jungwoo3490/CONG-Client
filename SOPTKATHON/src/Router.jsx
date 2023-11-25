@@ -11,13 +11,13 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<RequireAuthRoute />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/loading" element={<Loading />} />
-          <Route path="/event-list" element={<EventList />} />
-          <Route path="/event:eventId" element={<EventDetail />} />
-          <Route path="/create-message" element={<CreateMessage />} />
-        </Route>
+        {/* <Route element={<RequireAuthRoute />}> */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/loading" element={<Loading />} />
+        <Route path="/event-list" element={<EventList />} />
+        <Route path="/event" element={<EventDetail />} />
+        <Route path="/create-message" element={<CreateMessage />} />
+        {/* </Route> */}
       </Routes>
     </BrowserRouter>
   );
