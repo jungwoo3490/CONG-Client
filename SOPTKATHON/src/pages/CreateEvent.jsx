@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { theme } from '../styles/theme';
 import styled from 'styled-components';
@@ -85,8 +84,6 @@ const CreateEvent = () => {
   );
 };
 
-export default CreateEvent;
-
 const CreateEventWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -151,5 +148,4 @@ const CreateEventButton = styled.button`
   background-color: ${theme.colors.green};
 `;
 
-
-
+export default CreateEvent;
