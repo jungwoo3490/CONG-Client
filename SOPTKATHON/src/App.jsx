@@ -1,31 +1,45 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-
+import styled from 'styled-components';
+import { useEffect } from 'react';
 function App() {
-  const [count, setCount] = useState(0);
+  const setScreenSize = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth;
+    const maxWidth = Math.min(37.5, windowWidth);
+    document.documentElement.style.setProperty('--app-max-width', `${maxWidth}rem`);
+  };
+
+  useEffect(() => {
+    setScreenSize();
+    window.addEventListener('resize', setScreenSize);
+
+    return () => {
+      window.removeEventListener('resize', setScreenSize);
+    };
+  }, []);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <MobileWrapper>TEST</MobileWrapper>
     </>
   );
 }
 
 export default App;
+
+const MobileWrapper = styled.div`
+  display: flex;
+
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 auto;
+  background-color: ${({ theme }) => theme.colors.mainBlack};
+  color: ${({ theme }) => theme.colors.mainWhite};
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
+
+  max-width: var(--app-max-width, 37.5rem);
+  min-height: calc(var(--vh, 1vh) * 100);
+`;
