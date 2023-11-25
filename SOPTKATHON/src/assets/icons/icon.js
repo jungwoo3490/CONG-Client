@@ -1,4 +1,7 @@
 import BigLogo from './img_logo_big.svg?react';
+import LightCard from './ic_lightcard.svg?react';
+import PlusBtn from './btn_plus.svg?react';
+import SmallLogo from './img_logo_small.svg?react';
 import IcLeft from './icn_arrow_left.svg?react';
 import MiniClover from './img_postit_cloverwrite_unselect.svg?react';
 import MiniCong from './img_postit_congwrite_unselect.svg?react';
@@ -22,4 +25,7 @@ export {
   BigClover,
   BigCong,
   BigHeart,
+  PlusBtn,
+  SmallLogo,
+  LightCard,
 };
