@@ -8,9 +8,12 @@ const CreateEvent = () => {
   const [eventName, setEventName] = useState('');
   const [eventDetail, setEventDetail] = useState('');
 
-  // const [celebYear, setCelebYear] = useState('');
-  // const [celebMonth, setCelebMonth] = useState('');
-  // const [celebDay, setCelebDay] = useState('');
+  const dateString = date.toString();
+  const celebYear = dateString.slice(0, 4);
+  const celebMonth = dateString.slice(5, 7);
+  const celebDay = dateString.slice(8, 10);
+
+  const user_id = sessionStorage.getItem('userId');
 
   const handleDateChange = (e) => {
     setDate(e.target.value);
@@ -26,32 +29,24 @@ const CreateEvent = () => {
     setEventDetail(value);
   };
 
-  // const register = () => {
-  //   const dateString = date.toString();
-
-  //   const celebYear = dateString.slice(0, 4);
-  //   const celebMonth = dateString.slice(4, 6);
-  //   const celebDay = dateString.slice(6, 8);
-  //   axios
-  //     .post(`${import.meta.env.VITE_BASE_URL}/create`, {
-  //       user_id: id, //여긴 어디서?
-  //       room_name: eventName,
-  //       room_content: eventDetail,
-  //       celeb_year: celebYear,
-  //       celeb_month: celebMonth,
-  //       celeb_day: celebDay,
-  //     })
-  //     .then((response) => {
-  //       console.log('생성완료');
-  //       alert('생성완료');
-  //       console.log(response.data);
-  //       // navigate('');
-  //     })
-  //     .catch((error) => {
-  //       console.log('An error occurred:', error.response);
-  //       console.log(celebDay);
-  //     });
-  // };
+  const register = () => {
+    axios
+      .post(`${import.meta.env.VITE_BASE_URL}/create`, {
+        user_id: user_id,
+        room_name: eventName,
+        room_content: eventDetail,
+        celeb_year: celebYear,
+        celeb_month: celebMonth,
+        celeb_day: celebDay,
+      })
+      .then((response) => {
+        console.log(response.data);
+        navigate('/event-list');
+      })
+      .catch((error) => {
+        console.log('An error occurred:', error.response);
+      });
+  };
 
   return (
     <CreateEventWrapper>
@@ -65,23 +60,22 @@ const CreateEvent = () => {
       ></DateInput>
       <Title>이벤트 날짜</Title>
       <DateInput
-        value={`${celebYear}.${celebMonth}.${celebDay}`}
+        value={date}
         onChange={(e) => handleDateChange(e)}
         placeholder="0000.00.00"
         inputHeight="4.4rem"
       ></DateInput>
       <Title>설명</Title>
-      <DateInput
+      <DateTextArea
         value={eventDetail}
         onChange={(e) => handleEventDetailChange(e)}
         placeholder="이벤트 설명을 입력해주세요 (40자)"
-        inputHeight="24rem"
-      ></DateInput>
+      ></DateTextArea>
       <CreateEventButton
         type="submit"
         onClick={() => {
           console.log('register');
-          // register();
+          register();
         }}
       >
         이벤트 등록
@@ -112,10 +106,30 @@ const Title = styled.div`
 
 const DateInput = styled.input`
   width: 34.3rem;
+  padding: 1.5rem;
   background-color: ${theme.colors.blackGrey};
   height: ${({ inputHeight }) => inputHeight};
   border-radius: 1rem;
   border: none;
+  color: white;
+  resize: none;
+
+  margin-bottom: 2.8rem;
+
+  &::placeholder {
+    padding: 1.4rem;
+  }
+`;
+
+const DateTextArea = styled.textarea`
+  width: 34.3rem;
+  padding: 1.5rem;
+  background-color: ${theme.colors.blackGrey};
+  height: 24rem;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  resize: none;
 
   margin-bottom: 2.8rem;
 
