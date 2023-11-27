@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import CreateEvent from './pages/CreateEvent';
+import CreateMessage from './pages/CreateMessage';
 import EventDetail from './pages/EventDetail';
 import EventList from './pages/EventList';
 import { Loading } from './pages/Loading';
 import { Login } from './pages/Login';
 import RequireAuthRoute from './RequireAuthRoute';
-import { CreateMessage } from './pages/CreateMessage';
 
 const Router = () => {
   return (
