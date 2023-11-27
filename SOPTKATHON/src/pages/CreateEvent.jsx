@@ -110,6 +110,7 @@ const DateInput = styled.input`
   border-radius: 1rem;
   border: none;
   color: white;
+
   resize: none;
 
   margin-bottom: 2.8rem;
