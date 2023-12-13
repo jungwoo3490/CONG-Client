@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Main = () => {
-  const [data, setData] = useState([]);
+  const [congData, setCongData] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -23,7 +23,7 @@ const Main = () => {
           },
         );
         console.log(response);
-        setData(response.data.data.celeb_list);
+        setCongData(response.data.data.celeb_list);
         console.log('응답 데이터', response.data.data);
       } catch (error) {
         console.error('에러:', error);
@@ -33,18 +33,18 @@ const Main = () => {
     fetchUser();
   }, []);
 
-  console.log(data, '데이터');
-  console.log(data.length, '데이터길이');
+  console.log(congData, '데이터');
+  console.log(congData.length, '데이터길이');
 
   return (
     <>
       <Container>
         <AlertText>
           <img src={LightIcon} className="light-icon" alt="라이트아이콘" />
-          <MessageCount>{data.length}개</MessageCount>의 축하노트를 받았어요.
+          <MessageCount>{congData.length}개</MessageCount>의 축하노트를 받았어요.
         </AlertText>
         <MessageContainer>
-          {data.map((celeb) => (
+          {congData.map((celeb) => (
             <Message
               key={celeb.celeb_id}
               title={celeb.nickname}
