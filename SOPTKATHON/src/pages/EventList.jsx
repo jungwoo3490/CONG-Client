@@ -10,7 +10,7 @@ const EventList = () => {
   const [data, setData] = useState();
   const userId = 3; //session
   const navigate = useNavigate();
-  console.log(import.meta.env.VITE_BASE_URL);
+
   const getData = async () => {
     try {
       const { data } = await client.post(`/rooms`, {
@@ -38,7 +38,7 @@ const EventList = () => {
       <EventListContainer>
         {data?.data.room_list.length > 0 ? (
           data?.data.room_list.map((item) => (
-            <EventItem title={item.room_name} date={item.time} key={item.room_id}></EventItem>
+            <EventItem title={item.room_name} date={item.time} roomId={item.room_id} key={item.room_id}></EventItem>
           ))
         ) : (
           <EmptyEventWrapper>아직 생성한 이벤트가 없어요.</EmptyEventWrapper>

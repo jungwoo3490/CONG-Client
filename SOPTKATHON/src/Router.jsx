@@ -17,7 +17,7 @@ const Router = () => {
         <Route path="/event-list" element={<EventList />} />
 
         {/* </Route> */}
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/create-event" element={<CreateEvent></CreateEvent>}></Route>
 

@@ -1,9 +1,15 @@
 import { LightCard } from '../../assets/icons/icon';
 import styled from 'styled-components';
-const EventItem = ({ title, date }) => {
+import { useNavigate } from 'react-router-dom';
+const EventItem = ({ title, date, roomId }) => {
+  const navigate = useNavigate();
+  const handleEventDetail = () => {
+    console.log(roomId);
+    navigate(`/event/${roomId}`);
+  };
   console.log(title, date);
   return (
-    <EventItemWrapper>
+    <EventItemWrapper onClick={() => handleEventDetail()}>
       <EventTitle>{title}</EventTitle>
       <EventDateText>{date}</EventDateText>
       <LightCardIc></LightCardIc>
