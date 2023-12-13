@@ -4,6 +4,7 @@ import { LightIcon } from '../../assets';
 import { theme } from '../../styles/theme';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { PostIt1, PostIt2, PostIt3 } from '../../assets';
 
 const Main = () => {
   const [congData, setCongData] = useState([]); //개별 쪽지에 대한 정보
@@ -50,7 +51,8 @@ const Main = () => {
               key={celeb.celeb_id}
               title={celeb.nickname}
               content={celeb.celeb_content}
-              date={celeb.time} // or use a suitable property for date from your data
+              date={celeb.time}
+              postIt={celeb.post_it}
             />
           ))}
         </MessageContainer>
@@ -61,13 +63,24 @@ const Main = () => {
 
 export default Main;
 
-const Message = ({ title, content, date }) => (
-  <MessageWrapper>
+const Message = ({ title, content, date, postIt }) => (
+  <MessageWrapper postIt={postIt}>
     <Title>{title}</Title>
     <Content>{content}</Content>
     <Date>2023.11.26</Date>
   </MessageWrapper>
 );
+
+const getPostItImage = (postNum) => {
+  switch (postNum) {
+    case 1:
+      return PostIt1;
+    case 2:
+      return PostIt2;
+    case 3:
+      return PostIt3;
+  }
+};
 
 const Container = styled.div`
   display: flex;
@@ -110,8 +123,7 @@ const MessageWrapper = styled.div`
   height: 20rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
-  border: 1px solid green;
-  background-color: white;
+  background-image: ${({ postIt }) => `url(${getPostItImage(postIt)})`};
 `;
 
 const Title = styled.div`
