@@ -32,13 +32,13 @@ const CreateEvent = () => {
 
   const register = () => {
     axios
-      .post(`${import.meta.env.VITE_BASE_URL}/create`, {
-        user_id: user_id,
+      .post(`${import.meta.env.VITE_BASE_URL}/rooms/create`, {
+        user_id: parseInt(user_id),
         room_name: eventName,
         room_content: eventDetail,
-        celeb_year: celebYear,
-        celeb_month: celebMonth,
-        celeb_day: celebDay,
+        celeb_year: parseInt(celebYear),
+        celeb_month: parseInt(celebMonth),
+        celeb_day: parseInt(celebDay),
       })
       .then((response) => {
         console.log(response.data);
