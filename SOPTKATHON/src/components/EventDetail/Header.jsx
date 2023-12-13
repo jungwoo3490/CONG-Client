@@ -41,7 +41,6 @@ const Date = styled.div`
   display: flex;
   width: auto;
   height: 1.7rem;
-  border: 1px solid purple;
 
   align-items: center;
   color: ${theme.colors.mediumGrey};
@@ -54,7 +53,6 @@ const Title = styled.div`
   width: auto;
   height: 3.4rem;
   margin-bottom: 0.6rem;
-  border: 1px solid purple;
 
   color: #fff;
 
@@ -68,7 +66,6 @@ const Detail = styled.div`
   width: auto;
   height: 1.7rem;
   margin-bottom: 1.5rem;
-  border: 1px solid purple;
 
   color: #e7e7e7;
   ${theme.fonts.body1}
@@ -81,5 +78,4 @@ const Info = styled.div`
 
   width: 85%;
   margin: 0 1.7rem;
-  border: 1px solid yellow;
 `;

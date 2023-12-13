@@ -2,8 +2,39 @@ import React from 'react';
 import styled from 'styled-components';
 import { LightIcon } from '../../assets';
 import { theme } from '../../styles/theme';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Main = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      console.log(import.meta.env.VITE_BASE_URL);
+      try {
+        console.log('요청 시작');
+        const response = await axios.get(
+          `${import.meta.env.VITE_BASE_URL}/rooms/ea1c53aa-f5a2-43cd-875d-79b006e9777c`,
+          {
+            header: {
+              withCredentals: true,
+              'Access-Control-Allow-Origin': '*',
+            },
+          },
+        );
+        console.log(response);
+        setData(response.data.data.celeb_list);
+        console.log('응답 데이터', response.data.data);
+      } catch (error) {
+        console.error('에러:', error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
+  console.log(data);
+
   return (
     <>
       <Container>
@@ -12,13 +43,14 @@ const Main = () => {
           <MessageCount>40개</MessageCount>의 축하노트를 받았어요.
         </AlertText>
         <MessageContainer>
-          <Message
-            title="삐뽀"
-            content="아니 니가 벌써 졸업이라고 ~~~ ?? 너무너무 축하해 !!!!!!! 개쓰껄개쓰ㅡ껄 우와우오아ㅜㅇ와우오아 하하"
-          />
-          <Message title="Message 1" content="This is the content of Message 1." date="2021.07.23" />
-          <Message title="Message 1" content="This is the content of Message 1." />
-          <Message title="Message 1" content="This is the content of Message 1." />
+          {data.map((celeb) => (
+            <Message
+              key={celeb.celeb_id}
+              title={celeb.nickname}
+              content={celeb.celeb_content}
+              date={celeb.time} // or use a suitable property for date from your data
+            />
+          ))}
         </MessageContainer>
       </Container>
     </>
@@ -68,7 +100,6 @@ const MessageContainer = styled.div`
   justify-content: space-between;
 
   margin: auto 1.6rem;
-  border: 1px solid red;
 `;
 
 const MessageWrapper = styled.div`
@@ -85,7 +116,6 @@ const Title = styled.div`
   margin-top: 1.9rem;
   margin-left: 2.5rem;
   margin-right: 2.5rem;
-  border: 1px solid purple;
   ${({ theme }) => theme.fonts.title1};
   color: ${theme.colors.black};
 `;
@@ -94,7 +124,6 @@ const Content = styled.div`
   width: 11.6rem;
   height: 14rem;
   margin: 0 auto;
-  border: 1px solid yellow;
   ${({ theme }) => theme.fonts.body2};
   color: ${theme.colors.black};
 `;
@@ -103,5 +132,4 @@ const Date = styled.div`
   width: 6.7rem;
   height: 1.1rem;
   margin-left: 7.4rem;
-  border: 1px solid red;
 `;
