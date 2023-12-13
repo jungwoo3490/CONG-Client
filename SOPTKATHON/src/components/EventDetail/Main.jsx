@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Main = () => {
-  const [congData, setCongData] = useState([]);
+  const [congData, setCongData] = useState([]); //개별 쪽지에 대한 정보
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -24,6 +24,7 @@ const Main = () => {
         );
         console.log(response);
         setCongData(response.data.data.celeb_list);
+        setRoomData(response.data.data);
         console.log('응답 데이터', response.data.data);
       } catch (error) {
         console.error('에러:', error);

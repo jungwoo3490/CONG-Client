@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Header from '../components/EventDetail/Header';
 import Main from '../components/EventDetail/Main';
 import MainNone from '../components/EventDetail/MainNone';
-import { useEffect } from 'react';
 import axios from 'axios';
 
 export const EventDetail = () => {
+  const [detailData, setDetailData] = useState([]);
   useEffect(() => {
     const fetchUser = async () => {
       console.log(import.meta.env.VITE_BASE_URL);
@@ -22,6 +22,7 @@ export const EventDetail = () => {
           },
         );
         console.log('응답 데이터', response);
+        setDetailData(response.data.data);
       } catch (error) {
         console.error('에러:', error);
       }
@@ -29,13 +30,13 @@ export const EventDetail = () => {
 
     fetchUser();
   }, []);
+
   return (
     <div>
       {/* 헤더(시작합니다까지 투명)
     main(안에 받았어요(messageHeader) 그 다음에 포스팃 나열 Flex) */}
       <Header />
-      <Main />
-      {/* <MainNone /> */}
+      {detailData ? <Main /> : <MainNone />}
     </div>
   );
 };

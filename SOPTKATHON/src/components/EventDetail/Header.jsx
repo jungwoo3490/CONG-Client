@@ -1,17 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { BackgroundImage } from '../../assets';
 import { PersonCircle } from '../../assets';
 import { theme } from '../../styles/theme';
+import axios from 'axios';
 
 const Header = () => {
+  const [roomData, setRoomData] = useState([]); //해당 방에 대한 정보
+  useEffect(() => {
+    const fetchUser = async () => {
+      console.log(import.meta.env.VITE_BASE_URL);
+      try {
+        console.log('요청 시작~!');
+        const response = await axios.get(
+          `${import.meta.env.VITE_BASE_URL}/rooms/ea1c53aa-f5a2-43cd-875d-79b006e9777c`,
+          {
+            header: {
+              withCredentals: true,
+              'Access-Control-Allow-Origin': '*',
+            },
+          },
+        );
+        console.log('응답 데이터2', response);
+        setRoomData(response.data.data);
+      } catch (error) {
+        console.error('에러:', error);
+      }
+    };
+    fetchUser();
+  }, []);
   return (
     <Container>
       <img src={PersonCircle} alt="방으로 가는 아이콘" />
       <Info>
-        <Date>2023. 11. 26 (일)</Date>
-        <Title>끈끈디팟 졸작 축하해</Title>
-        <Detail>63일동안 이어진 디팟의 인연!드디어 솝트에서 전시를 시작합니다.</Detail>
+        <Date>{roomData.time}</Date>
+        <Title>{roomData.room_name}</Title>
+        <Detail>{roomData.room_content}</Detail>
       </Info>
     </Container>
   );
