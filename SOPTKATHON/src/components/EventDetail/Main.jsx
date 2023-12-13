@@ -33,14 +33,15 @@ const Main = () => {
     fetchUser();
   }, []);
 
-  console.log(data);
+  console.log(data, '데이터');
+  console.log(data.length, '데이터길이');
 
   return (
     <>
       <Container>
         <AlertText>
           <img src={LightIcon} className="light-icon" alt="라이트아이콘" />
-          <MessageCount>40개</MessageCount>의 축하노트를 받았어요.
+          <MessageCount>{data.length}개</MessageCount>의 축하노트를 받았어요.
         </AlertText>
         <MessageContainer>
           {data.map((celeb) => (
@@ -63,7 +64,7 @@ const Message = ({ title, content, date }) => (
   <MessageWrapper>
     <Title>{title}</Title>
     <Content>{content}</Content>
-    <Date>{date}</Date>
+    <Date>2023.11.26</Date>
   </MessageWrapper>
 );
 
@@ -90,6 +91,7 @@ const AlertText = styled.div`
 `;
 
 const MessageCount = styled.span`
+  margin-left: 0.2rem;
   color: ${theme.colors.green};
   ${theme.fonts.head2};
 `;
@@ -105,6 +107,8 @@ const MessageContainer = styled.div`
 const MessageWrapper = styled.div`
   width: 16.6rem;
   height: 20rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
   border: 1px solid green;
   background-color: white;
 `;
@@ -114,22 +118,24 @@ const Title = styled.div`
   align-items: center;
   height: 2.2rem;
   margin-top: 1.9rem;
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+  margin-bottom: 0.1rem;
   ${({ theme }) => theme.fonts.title1};
   color: ${theme.colors.black};
 `;
 
 const Content = styled.div`
   width: 11.6rem;
-  height: 14rem;
-  margin: 0 auto;
+  height: 12rem;
   ${({ theme }) => theme.fonts.body2};
   color: ${theme.colors.black};
 `;
 
 const Date = styled.div`
-  width: 6.7rem;
+  width: auto;
   height: 1.1rem;
-  margin-left: 7.4rem;
+  padding-right: 0;
+  text-align: right;
+
+  ${theme.fonts.caption};
+  color: ${theme.colors.darkGrey};
 `;

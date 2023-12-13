@@ -52,7 +52,8 @@ const Title = styled.div`
   display: flex;
   width: auto;
   height: 3.4rem;
-  margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
+  margin-bottom: 1.5rem;
 
   color: #fff;
 
@@ -63,9 +64,8 @@ const Title = styled.div`
 
 const Detail = styled.div`
   display: flex;
-  width: auto;
+  width: 21.8rem;
   height: 1.7rem;
-  margin-bottom: 1.5rem;
 
   color: #e7e7e7;
   ${theme.fonts.body1}
