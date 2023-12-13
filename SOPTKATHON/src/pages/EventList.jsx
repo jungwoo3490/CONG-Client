@@ -4,15 +4,17 @@ import React, { useEffect, useState } from 'react';
 import EventItem from '../components/createEvent/EventItem';
 import { client } from '../apis/client';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const EventList = () => {
   const [data, setData] = useState();
-  const userId = 1; //session
+  const userId = 3; //session
+  const navigate = useNavigate();
   console.log(import.meta.env.VITE_BASE_URL);
   const getData = async () => {
     try {
       const { data } = await client.post(`/rooms`, {
-        user_id: 3,
+        user_id: userId,
       });
       console.log(data);
       setData(data);
@@ -20,6 +22,11 @@ const EventList = () => {
       console.log(err);
     }
   };
+
+  const handlePlusBtn = () => {
+    navigate(`/create-event`);
+  };
+
   useEffect(() => {
     getData();
   }, []);
@@ -40,7 +47,7 @@ const EventList = () => {
 
       <BtnWrapper>
         {' '}
-        <PlusBtn></PlusBtn>
+        <PlusBtn onClick={handlePlusBtn}></PlusBtn>
       </BtnWrapper>
     </EventListWrapper>
   );

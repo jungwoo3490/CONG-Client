@@ -1,11 +1,10 @@
 import Header from '../components/CreateMessage/Header';
 import SelectNote from '../components/CreateMessage/SelectNote';
 import WriteMessage from '../components/CreateMessage/WriteMessage';
+import axios from 'axios';
 import styled from 'styled-components';
-import { useState } from 'react';
-
 import { useParams } from 'react-router-dom';
-
+import { useState } from 'react';
 
 const CreateMessage = () => {
   const [noteType, setNoteType] = useState(1);

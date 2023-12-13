@@ -1,8 +1,8 @@
-
 import { useEffect, useState } from 'react';
-import { theme } from '../styles/theme';
-import styled from 'styled-components';
+
 import axios from 'axios';
+import styled from 'styled-components';
+import { theme } from '../styles/theme';
 
 const CreateEvent = () => {
   const [date, setDate] = useState('');
@@ -115,15 +115,11 @@ const DateInput = styled.input`
   resize: none;
 
   margin-bottom: 2.8rem;
-
-  &::placeholder {
-    padding: 1.4rem;
-  }
 `;
 
 const DateTextArea = styled.textarea`
   width: 34.3rem;
-  padding: 1.5rem;
+  padding: 1.4rem;
   background-color: ${theme.colors.blackGrey};
   height: 24rem;
   border-radius: 1rem;
@@ -132,10 +128,6 @@ const DateTextArea = styled.textarea`
   resize: none;
 
   margin-bottom: 2.8rem;
-
-  &::placeholder {
-    padding: 1.4rem;
-  }
 `;
 
 const CreateEventButton = styled.button`
