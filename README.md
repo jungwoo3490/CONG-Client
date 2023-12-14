@@ -184,4 +184,4 @@
 <img src="https://github.com/SOPT33-SOPKATHON/Client/assets/93575538/1cf0ad8d-fa25-454e-8deb-1760b2a36cba" alt="웨비 팀원들 사진 (before)"/>
  
 <h3>After</h3>
-<img src="" alt="웨비 팀원들 사진 (after)"/>
+<img src="https://github.com/SOPT33-SOPKATHON/Client/assets/93575538/acfa909a-7241-4cdc-9434-f5e4e33a4965" alt="웨비 팀원들 사진 (after)"/>
