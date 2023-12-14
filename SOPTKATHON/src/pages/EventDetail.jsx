@@ -2,12 +2,21 @@ import React, { useState, useEffect } from 'react';
 import Header from '../components/EventDetail/Header';
 import Main from '../components/EventDetail/Main';
 import MainNone from '../components/EventDetail/MainNone';
+import { WriteButton } from '../assets';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import { useNavigate, Navigate } from 'react-router-dom';
 
 export const EventDetail = () => {
   const [detailData, setDetailData] = useState([]);
   const { uuId } = useParams();
+  const navigate = useNavigate();
+
+  const handleCreateMessage = () => {
+    navigate(`/create-message/${uuId}`);
+  };
+
   useEffect(() => {
     const fetchUser = async () => {
       console.log(import.meta.env.VITE_BASE_URL);
@@ -35,8 +44,15 @@ export const EventDetail = () => {
     main(안에 받았어요(messageHeader) 그 다음에 포스팃 나열 Flex) */}
       <Header />
       {detailData ? <Main /> : <MainNone />}
+      <FixedButton src={WriteButton} alt="Write Button" onClick={handleCreateMessage} />
     </div>
   );
 };
 
 export default EventDetail;
+
+const FixedButton = styled.img`
+  position: fixed;
+  bottom: 2.5rem;
+  right: 1.5rem;
+`;
