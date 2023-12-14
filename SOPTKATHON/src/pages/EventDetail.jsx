@@ -43,7 +43,7 @@ export const EventDetail = () => {
       {/* 헤더(시작합니다까지 투명)
     main(안에 받았어요(messageHeader) 그 다음에 포스팃 나열 Flex) */}
       <Header />
-      {detailData ? <Main /> : <MainNone />}
+      {detailData.celeb_num ? <Main /> : <MainNone />}
       <FixedButton src={WriteButton} alt="Write Button" onClick={handleCreateMessage} />
     </div>
   );

@@ -23,5 +23,5 @@ const Container = styled.div`
   width: 37.5rem;
   height: 52rem;
   color: ${theme.colors.mediumGrey};
-  ${theme.fonts.head2}
+  ${theme.fonts.body2}
 `;
