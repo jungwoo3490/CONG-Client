@@ -8,8 +8,7 @@ import { useNavigate } from 'react-router-dom';
 
 const EventList = () => {
   const [data, setData] = useState();
-  // const id = sessionStorage.getItem('userId'); //session
-  const id = 3;
+  const id = sessionStorage.getItem('userId'); //session
   const navigate = useNavigate();
 
   const getData = async () => {

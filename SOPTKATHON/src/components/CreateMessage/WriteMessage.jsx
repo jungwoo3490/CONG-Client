@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BigClover, BigCong, BigHeart } from '../../assets/icons/icon';
 
-const WriteMessage = ({ noteType, setNickname, setMessage }) => {
+const WriteMessage = ({ noteType, setNickname, setMessage, today }) => {
   const handleChangeNicknameInput = (e) => {
     setNickname(e.target.value);
   };

@@ -15,6 +15,14 @@ const CreateMessage = () => {
   const { uuId } = useParams();
   const navigate = useNavigate();
 
+  const currentDate = new Date();
+
+  const year = currentDate.getFullYear();
+  const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+  const day = currentDate.getDate().toString().padStart(2, '0');
+
+  const today = year + '.' + month + '.' + day;
+
   const handleClickCompleteButton = () => {
     axios({
       method: 'post',
@@ -24,11 +32,12 @@ const CreateMessage = () => {
         nickname: nickname,
         celeb_text: message,
         post_it: noteType,
+        post_time: today,
       },
     })
       .then((response) => {
         if (response.status === 200) {
-          navigate('/event-list');
+          navigate(`/event/${uuId}`);
         }
       })
       .catch(function (error) {
@@ -42,7 +51,7 @@ const CreateMessage = () => {
     <CreateMessageWrapper>
       <Header />
       <SelectNote noteType={noteType} setNoteType={setNoteType} />
-      <WriteMessage noteType={noteType} setNickname={setNickname} setMessage={setMessage} />
+      <WriteMessage noteType={noteType} setNickname={setNickname} setMessage={setMessage} today={today} />
       <CompleteButton onClick={handleClickCompleteButton}>작성 완료</CompleteButton>
     </CreateMessageWrapper>
   );
