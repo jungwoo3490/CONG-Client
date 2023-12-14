@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { BackgroundImage } from '../../assets';
 import { PersonCircle } from '../../assets';
 import { theme } from '../../styles/theme';
+import axios from 'axios';
 
 const Header = () => {
+  const [roomData, setRoomData] = useState([]); //해당 방에 대한 정보
+  useEffect(() => {
+    const fetchUser = async () => {
+      console.log(import.meta.env.VITE_BASE_URL);
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BASE_URL}/rooms/ea1c53aa-f5a2-43cd-875d-79b006e9777c`,
+          {
+            header: {
+              withCredentals: true,
+              'Access-Control-Allow-Origin': '*',
+            },
+          },
+        );
+        setRoomData(response.data.data);
+      } catch (error) {
+        console.error('에러:', error);
+      }
+    };
+    fetchUser();
+  }, []);
   return (
     <Container>
       <img src={PersonCircle} alt="방으로 가는 아이콘" />
       <Info>
-        <Date>2023. 11. 26 (일)</Date>
-        <Title>끈끈디팟 졸작 축하해</Title>
-        <Detail>63일동안 이어진 디팟의 인연!드디어 솝트에서 전시를 시작합니다.</Detail>
+        <Date>{roomData.time}</Date>
+        <Title>{roomData.room_name}</Title>
+        <Detail>{roomData.room_content}</Detail>
       </Info>
     </Container>
   );
@@ -41,7 +63,6 @@ const Date = styled.div`
   display: flex;
   width: auto;
   height: 1.7rem;
-  border: 1px solid purple;
 
   align-items: center;
   color: ${theme.colors.mediumGrey};
@@ -53,8 +74,8 @@ const Title = styled.div`
   display: flex;
   width: auto;
   height: 3.4rem;
-  margin-bottom: 0.6rem;
-  border: 1px solid purple;
+  margin-top: 0.6rem;
+  margin-bottom: 1.5rem;
 
   color: #fff;
 
@@ -65,10 +86,8 @@ const Title = styled.div`
 
 const Detail = styled.div`
   display: flex;
-  width: auto;
+  width: 21.8rem;
   height: 1.7rem;
-  margin-bottom: 1.5rem;
-  border: 1px solid purple;
 
   color: #e7e7e7;
   ${theme.fonts.body1}
@@ -81,5 +100,4 @@ const Info = styled.div`
 
   width: 85%;
   margin: 0 1.7rem;
-  border: 1px solid yellow;
 `;

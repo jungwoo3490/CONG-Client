@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 import EventItem from '../components/createEvent/EventItem';
 import { client } from '../apis/client';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { Navigate,useNavigate } from 'react-router-dom';
+
 
 const EventList = () => {
   const [data, setData] = useState();
@@ -38,7 +39,8 @@ const EventList = () => {
       <EventListContainer>
         {data?.data.room_list.length > 0 ? (
           data?.data.room_list.map((item) => (
-            <EventItem title={item.room_name} date={item.time} roomId={item.room_id} key={item.room_id}></EventItem>
+            <EventItem title={item.room_name} date={item.time} key={item.room_id} onClick={useNavigate('./rooms/{room_uuid}')}></EventItem>
+
           ))
         ) : (
           <EmptyEventWrapper>아직 생성한 이벤트가 없어요.</EmptyEventWrapper>
