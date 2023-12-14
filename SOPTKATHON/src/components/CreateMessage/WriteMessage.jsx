@@ -16,7 +16,7 @@ const WriteMessage = ({ noteType, setNickname, setMessage, today }) => {
       <NoteWrapper>
         <NicknameInput placeholder="닉네임을 입력해주세요(7자)" onChange={handleChangeNicknameInput} maxLength="7" />
         <MessageInput placeholder="메시지를 입력해주세요 (55자)" onChange={handleChangeMessageInput} maxLength="55" />
-        <DateText>2023.11.26</DateText>
+        <DateText>{today}</DateText>
         {noteType === 1 ? <BigClover /> : noteType === 2 ? <BigCong /> : <BigHeart />}
       </NoteWrapper>
     </WriteMessageWrapper>
@@ -63,7 +63,7 @@ const NicknameInput = styled.input`
   ${({ theme }) => theme.fonts.title1};
   color: ${({ theme }) => theme.colors.black};
   &::placeholder {
-    ${({ theme }) => theme.fonts.title1};
+    ${({ theme }) => theme.fonts.body1};
     color: #afafb2;
   }
 `;
