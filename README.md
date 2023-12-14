@@ -1,10 +1,11 @@
-# Client
-<div align="center">
+# 🎉 CONG
 
-<h2> Cong </h2>
+> 33기 DO SOPT 솝커톤
+>
+> 축하 아카이빙 서비스
+> 축하의 순간 사라지지 않게 콩! 
 
-<img src=""  alt="서비스대표-이미지" />
-<div>축하의 순간, 사라지지 않게 콩!</div>
+<img width="770" alt="image" src="https://github.com/SOPT33-SOPKATHON/Server/assets/67463603/30729265-ebb4-4cbf-b126-cd50e3af3b69">
 
 </div>
 
@@ -178,10 +179,3 @@
 
 |— 📁 atom
 ```
-
-<h2>웨비 Before and After</h2>
-<h3>Before</h3>
-<img src="https://github.com/SOPT33-SOPKATHON/Client/assets/93575538/1cf0ad8d-fa25-454e-8deb-1760b2a36cba" alt="웨비 팀원들 사진 (before)"/>
- 
-<h3>After</h3>
-<img src="https://github.com/SOPT33-SOPKATHON/Client/assets/93575538/acfa909a-7241-4cdc-9434-f5e4e33a4965" alt="웨비 팀원들 사진 (after)"/>
