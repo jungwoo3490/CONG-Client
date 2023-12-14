@@ -4,29 +4,28 @@ import { BackgroundImage } from '../../assets';
 import { PersonCircle } from '../../assets';
 import { theme } from '../../styles/theme';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const Header = () => {
   const [roomData, setRoomData] = useState([]); //해당 방에 대한 정보
+  const { uuId } = useParams();
   useEffect(() => {
     const fetchUser = async () => {
       console.log(import.meta.env.VITE_BASE_URL);
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/rooms/ea1c53aa-f5a2-43cd-875d-79b006e9777c`,
-          {
-            header: {
-              withCredentals: true,
-              'Access-Control-Allow-Origin': '*',
-            },
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/rooms/${uuId}`, {
+          header: {
+            withCredentals: true,
+            'Access-Control-Allow-Origin': '*',
           },
-        );
+        });
         setRoomData(response.data.data);
       } catch (error) {
         console.error('에러:', error);
       }
     };
     fetchUser();
-  }, []);
+  }, [uuId]);
   return (
     <Container>
       <img src={PersonCircle} alt="방으로 가는 아이콘" />

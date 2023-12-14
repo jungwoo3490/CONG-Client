@@ -5,27 +5,25 @@ import { theme } from '../../styles/theme';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { PostIt1, PostIt2, PostIt3 } from '../../assets';
+import { useParams } from 'react-router-dom';
 
 const Main = () => {
   const [congData, setCongData] = useState([]); //개별 쪽지에 대한 정보
+  const { uuId } = useParams();
 
   useEffect(() => {
     const fetchUser = async () => {
       console.log(import.meta.env.VITE_BASE_URL);
       try {
         console.log('요청 시작');
-        const response = await axios.get(
-          `${import.meta.env.VITE_BASE_URL}/rooms/ea1c53aa-f5a2-43cd-875d-79b006e9777c`,
-          {
-            header: {
-              withCredentals: true,
-              'Access-Control-Allow-Origin': '*',
-            },
+        const response = await axios.get(`${import.meta.env.VITE_BASE_URL}/rooms/${uuId}`, {
+          header: {
+            withCredentals: true,
+            'Access-Control-Allow-Origin': '*',
           },
-        );
+        });
         console.log(response);
         setCongData(response.data.data.celeb_list);
-        setRoomData(response.data.data);
         console.log('응답 데이터', response.data.data);
       } catch (error) {
         console.error('에러:', error);
@@ -33,7 +31,7 @@ const Main = () => {
     };
 
     fetchUser();
-  }, []);
+  }, [uuId]);
 
   return (
     <>
