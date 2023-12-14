@@ -7,6 +7,9 @@ const REDIRECT_URI = import.meta.env.VITE_REDIRECT_URI;
 const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
 export const Login = () => {
+  console.log(import.meta.env.VITE_CLIENT_ID);
+  console.log(import.meta.env.VITE_REDIRECT_URI);
+
   return (
     <LoginWrapper>
       <StyledBigLogo />
