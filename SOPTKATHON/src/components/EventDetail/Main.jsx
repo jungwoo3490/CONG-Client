@@ -109,6 +109,7 @@ const MessageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 2rem 1rem;
 
   margin: auto 1.6rem;
 `;
