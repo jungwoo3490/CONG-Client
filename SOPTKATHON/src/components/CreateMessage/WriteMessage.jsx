@@ -14,9 +14,9 @@ const WriteMessage = ({ noteType, setNickname, setMessage, today }) => {
     <WriteMessageWrapper>
       <WriteMessageTitle>축하노트를 작성해주세요</WriteMessageTitle>
       <NoteWrapper>
-        <NicknameInput placeholder="닉네임을 입력해주세요(7자)" onChange={handleChangeNicknameInput} />
-        <MessageInput placeholder="메시지를 입력해주세요 (70자)" onChange={handleChangeMessageInput} />
-        <DateText>{today}</DateText>
+        <NicknameInput placeholder="닉네임을 입력해주세요(7자)" onChange={handleChangeNicknameInput} maxLength="7" />
+        <MessageInput placeholder="메시지를 입력해주세요 (55자)" onChange={handleChangeMessageInput} maxLength="55" />
+        <DateText>2023.11.26</DateText>
         {noteType === 1 ? <BigClover /> : noteType === 2 ? <BigCong /> : <BigHeart />}
       </NoteWrapper>
     </WriteMessageWrapper>
