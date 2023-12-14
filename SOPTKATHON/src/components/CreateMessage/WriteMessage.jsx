@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 import { BigClover, BigCong, BigHeart } from '../../assets/icons/icon';
-import axios from 'axios';
 
-const WriteMessage = ({ noteType, setNickname, setMessage }) => {
+const WriteMessage = ({ noteType, setNickname, setMessage, today }) => {
   const handleChangeNicknameInput = (e) => {
     setNickname(e.target.value);
   };
@@ -17,7 +16,7 @@ const WriteMessage = ({ noteType, setNickname, setMessage }) => {
       <NoteWrapper>
         <NicknameInput placeholder="닉네임을 입력해주세요(7자)" onChange={handleChangeNicknameInput} />
         <MessageInput placeholder="메시지를 입력해주세요 (70자)" onChange={handleChangeMessageInput} />
-        <DateText>2023.11.26</DateText>
+        <DateText>{today}</DateText>
         {noteType === 1 ? <BigClover /> : noteType === 2 ? <BigCong /> : <BigHeart />}
       </NoteWrapper>
     </WriteMessageWrapper>
