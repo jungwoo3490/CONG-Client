@@ -5,6 +5,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const CreateMessage = () => {
   const [noteType, setNoteType] = useState(1);
@@ -12,6 +13,7 @@ const CreateMessage = () => {
   const [message, setMessage] = useState('');
 
   const { uuId } = useParams();
+  const navigate = useNavigate();
 
   const handleClickCompleteButton = () => {
     axios({
