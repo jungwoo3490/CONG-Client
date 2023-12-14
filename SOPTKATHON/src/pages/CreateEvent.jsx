@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { theme } from '../styles/theme';
+import { useNavigate } from 'react-router-dom';
 
 const CreateEvent = () => {
   const [date, setDate] = useState('');
@@ -16,6 +17,7 @@ const CreateEvent = () => {
 
   const user_id = sessionStorage.getItem('userId');
 
+  const navigate = useNavigate();
   const handleDateChange = (e) => {
     setDate(e.target.value);
   };

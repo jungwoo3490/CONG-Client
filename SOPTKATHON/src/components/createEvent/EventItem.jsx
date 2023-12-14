@@ -12,7 +12,7 @@ const EventItem = ({ title, date, roomId }) => {
     <EventItemWrapper onClick={() => handleEventDetail()}>
       <EventTitle>{title}</EventTitle>
       <EventDateText>{date}</EventDateText>
-      <LightCardIc></LightCardIc>
+      <LightCardIc />
     </EventItemWrapper>
   );
 };

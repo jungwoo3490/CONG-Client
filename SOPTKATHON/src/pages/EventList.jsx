@@ -4,18 +4,17 @@ import React, { useEffect, useState } from 'react';
 import EventItem from '../components/createEvent/EventItem';
 import { client } from '../apis/client';
 import styled from 'styled-components';
-import { Navigate,useNavigate } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 const EventList = () => {
   const [data, setData] = useState();
-  const userId = 3; //session
+  const id = sessionStorage.getItem('userId'); //session
   const navigate = useNavigate();
 
   const getData = async () => {
     try {
       const { data } = await client.post(`/rooms`, {
-        user_id: userId,
+        user_id: id,
       });
       console.log(data);
       setData(data);
@@ -30,6 +29,7 @@ const EventList = () => {
 
   useEffect(() => {
     getData();
+    console.log(data);
   }, []);
 
   return (
@@ -39,8 +39,7 @@ const EventList = () => {
       <EventListContainer>
         {data?.data.room_list.length > 0 ? (
           data?.data.room_list.map((item) => (
-            <EventItem title={item.room_name} date={item.time} key={item.room_id} onClick={useNavigate('./rooms/{room_uuid}')}></EventItem>
-
+            <EventItem title={item.room_name} date={item.time} key={item.room_id} roomId={item.room_uuid}></EventItem>
           ))
         ) : (
           <EmptyEventWrapper>아직 생성한 이벤트가 없어요.</EmptyEventWrapper>
