@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import Header from '../components/EventDetail/Header';
 import Main from '../components/EventDetail/Main';
 import MainNone from '../components/EventDetail/MainNone';

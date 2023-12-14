@@ -11,7 +11,6 @@ const Header = () => {
     const fetchUser = async () => {
       console.log(import.meta.env.VITE_BASE_URL);
       try {
-        console.log('요청 시작~!');
         const response = await axios.get(
           `${import.meta.env.VITE_BASE_URL}/rooms/ea1c53aa-f5a2-43cd-875d-79b006e9777c`,
           {
@@ -21,7 +20,6 @@ const Header = () => {
             },
           },
         );
-        console.log('응답 데이터2', response);
         setRoomData(response.data.data);
       } catch (error) {
         console.error('에러:', error);

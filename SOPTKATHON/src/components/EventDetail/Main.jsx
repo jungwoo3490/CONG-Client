@@ -35,9 +35,6 @@ const Main = () => {
     fetchUser();
   }, []);
 
-  console.log(congData, '데이터');
-  console.log(congData.length, '데이터길이');
-
   return (
     <>
       <Container>
