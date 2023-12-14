@@ -46,7 +46,7 @@ const Main = () => {
               key={celeb.celeb_id}
               title={celeb.nickname}
               content={celeb.celeb_content}
-              date={celeb.time}
+              postTime={celeb.post_time}
               postIt={celeb.post_it}
             />
           ))}
@@ -58,11 +58,11 @@ const Main = () => {
 
 export default Main;
 
-const Message = ({ title, content, date, postIt }) => (
+const Message = ({ title, content, postTime, postIt }) => (
   <MessageWrapper postIt={postIt}>
     <Title>{title}</Title>
     <Content>{content}</Content>
-    <Date>2023.11.26</Date>
+    <Date>{postTime}</Date>
   </MessageWrapper>
 );
 
