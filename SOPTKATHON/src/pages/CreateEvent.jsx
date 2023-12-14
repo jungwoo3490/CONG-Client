@@ -19,7 +19,19 @@ const CreateEvent = () => {
 
   const navigate = useNavigate();
   const handleDateChange = (e) => {
-    setDate(e.target.value);
+    let value = e.target.value;
+
+    // Remove any non-digit characters
+    value = value.replace(/\D/g, '');
+
+    // Format the date as dd/mm/yyyy
+    if (value.length <= 4) {
+      setDate(value);
+    } else if (value.length <= 6) {
+      setDate(`${value.slice(0, 4)}/${value.slice(4, 6)}`);
+    } else {
+      setDate(`${value.slice(0, 4)}/${value.slice(4, 6)}/${value.slice(6, 8)}`);
+    }
   };
 
   const handleEventNameChange = (e) => {
